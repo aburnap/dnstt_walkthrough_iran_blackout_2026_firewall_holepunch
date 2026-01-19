@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
         host: '0.0.0.0',
       },
       plugins: [react()],
-      base: "/dnstt_walkthrough2",
+      base: "/dnstt_walkthrough",
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
