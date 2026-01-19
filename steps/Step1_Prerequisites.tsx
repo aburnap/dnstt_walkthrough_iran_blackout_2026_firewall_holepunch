@@ -1,0 +1,62 @@
+
+import React from 'react';
+import { Language } from '../types';
+
+export const Step1: React.FC<{ lang: Language }> = ({ lang }) => {
+  const isRtl = lang === 'fa';
+  return (
+    <div className="space-y-4">
+      {isRtl ? (
+        <>
+          <p className="text-slate-700 leading-relaxed">
+            برای ساخت تونل DNS، به موارد زیر نیاز دارید:
+          </p>
+          <ul className="list-disc list-inside space-y-3 text-slate-700">
+            <li>
+              <strong>سرور مجازی لینوکس (VPS):</strong> ترجیحاً اوبونتو ۲۰.۰۴ یا بالاتر.
+              <span className="text-slate-500 text-xs block mt-1 ps-5 italic">مثلاً پلن‌های پایه <strong>Hetzner</strong> با قیمت حدود ۴ یورو در ماه.</span>
+            </li>
+            <li>
+              <strong>نام دامنه:</strong> 
+              <span className="text-red-600 font-bold block mt-1">ترجیحاً از دامنه‌های .ir استفاده نکنید.</span>
+              دامنه‌های رایج مانند .com، .net و .org بهترین گزینه هستند.
+              <span className="text-slate-500 text-xs block mt-1 ps-5 italic">می‌توانید از <strong>Namecheap</strong> با شروع قیمت حدود ۳ تا ۴ یورو برای سال اول تهیه کنید.</span>
+            </li>
+          </ul>
+          <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 mt-4">
+            <h4 className="font-bold text-blue-800 mb-2">نکات مهم:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• بررسی کنید پورت 53 UDP باز باشد.</li>
+              <li>• سرویس systemd-resolved را غیرفعال کنید.</li>
+            </ul>
+          </div>
+        </>
+      ) : (
+        <>
+          <p className="text-slate-700 leading-relaxed">
+            To build a DNS tunnel, you need:
+          </p>
+          <ul className="list-disc list-inside space-y-3 text-slate-700">
+            <li>
+              <strong>Linux VPS:</strong> Ubuntu 20.04+ recommended.
+              <span className="text-slate-500 text-xs block mt-1 ps-5 italic">Example: <strong>Hetzner</strong> basic plans starting at ~€4/month.</span>
+            </li>
+            <li>
+              <strong>Domain Name:</strong> 
+              <span className="text-red-600 font-bold block mt-1">Preferably avoid ".ir" domains.</span>
+              Prefer common TLDs like .com, .net, .org, or .xyz.
+              <span className="text-slate-500 text-xs block mt-1 ps-5 italic">Available via <strong>Namecheap</strong> starting from ~€3-4.</span>
+            </li>
+          </ul>
+          <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 mt-4">
+            <h4 className="font-bold text-blue-800 mb-2">Important Tips:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• Ensure UDP port 53 is allowed by your firewall.</li>
+              <li>• Disable systemd-resolved to free up port 53.</li>
+            </ul>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
