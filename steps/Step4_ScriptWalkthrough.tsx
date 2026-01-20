@@ -21,7 +21,7 @@ export const Step5: React.FC<{ lang: Language }> = ({ lang }) => {
             <div>
               <h5 className="font-bold text-slate-900 text-sm md:text-base">{isRtl ? "نام دامنه (Nameserver Subdomain)" : "Nameserver Subdomain"}</h5>
               <p className="text-xs md:text-sm text-slate-600 mt-1">
-                {isRtl ? "زیردامنه‌ای که در مرحله ۲ برای NS تنظیم کردید را وارد کنید (مثلاً t.example.com)." : "Enter the specific subdomain you configured for your NS record in Step 2."}
+                {isRtl ? "زیردامنه‌ای که در مرحله ۲ برای NS تنظیم کردید را وارد کنید (مثلاً k.example.com)." : "Enter the specific subdomain you configured for your NS record in Step 2 (e.g., k.example.com)."}
               </p>
             </div>
           </div>
@@ -86,7 +86,7 @@ export const Step5: React.FC<{ lang: Language }> = ({ lang }) => {
           <div className="bg-slate-900 rounded-xl p-3 md:p-4 font-mono text-[9px] md:text-[11px] text-slate-400 overflow-x-auto border border-slate-800 scrollbar-hide" dir="ltr">
             <div className="text-blue-400 opacity-70 border-b border-slate-800 pb-2 mb-2 uppercase tracking-tighter">Sample Setup Finish</div>
             <div className="space-y-1">
-              <div className="pl-3 truncate">Nameserver: <span className="text-slate-200">t.example.com</span></div>
+              <div className="pl-3 truncate">Nameserver: <span className="text-slate-200">k.example.com</span></div>
               <div className="pl-3">MTU: <span className="text-slate-200">1232</span></div>
               <div className="pl-3">Mode: <span className="text-slate-200">ssh</span></div>
               <div className="mt-3 text-blue-400">Public Key:</div>

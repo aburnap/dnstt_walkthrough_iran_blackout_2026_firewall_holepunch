@@ -23,13 +23,6 @@ export const Step1: React.FC<{ lang: Language }> = ({ lang }) => {
               <span className="text-slate-500 text-xs block mt-1 ps-5 italic">می‌توانید از <strong>Namecheap</strong> با شروع قیمت حدود ۳ تا ۴ یورو برای سال اول تهیه کنید.</span>
             </li>
           </ul>
-          <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 mt-4">
-            <h4 className="font-bold text-blue-800 mb-2">نکات مهم:</h4>
-            <ul className="text-sm text-blue-700 space-y-1">
-              <li>• بررسی کنید پورت 53 UDP باز باشد.</li>
-              <li>• سرویس systemd-resolved را غیرفعال کنید.</li>
-            </ul>
-          </div>
         </>
       ) : (
         <>
@@ -48,13 +41,6 @@ export const Step1: React.FC<{ lang: Language }> = ({ lang }) => {
               <span className="text-slate-500 text-xs block mt-1 ps-5 italic">Available via <strong>Namecheap</strong> starting from ~€3-4.</span>
             </li>
           </ul>
-          <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 mt-4">
-            <h4 className="font-bold text-blue-800 mb-2">Important Tips:</h4>
-            <ul className="text-sm text-blue-700 space-y-1">
-              <li>• Ensure UDP port 53 is allowed by your firewall.</li>
-              <li>• Disable systemd-resolved to free up port 53.</li>
-            </ul>
-          </div>
         </>
       )}
     </div>

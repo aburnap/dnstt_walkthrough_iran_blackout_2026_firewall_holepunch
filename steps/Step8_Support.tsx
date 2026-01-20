@@ -55,8 +55,8 @@ export const Step9: React.FC<{ lang: Language }> = ({ lang }) => {
           </a>
           <p>
             {isRtl 
-              ? "شما باید آن‌ها را یکی یکی تست کنید تا ببینید کدام‌یک برای شما متصل می‌شود." 
-              : "You need to try them one by one to find which one successfully establishes a connection for you."}
+              ? "شما باید آن‌ها را یکی یکی تست کنید تا ببینید کدام‌یک برای شما متصل می‌شود. همچنین طبق گزارش کاربران، DNSهای گوگل (8.8.8.8:53) و کلودفلر (1.1.1.1:53) نیز در برخی شبکه‌ها بخوبی عمل می‌کنند." 
+              : "You need to try them one by one. Additionally, some users report that Google (8.8.8.8:53) and Cloudflare (1.1.1.1:53) DNS servers also work effectively on some networks."}
           </p>
           
           <div className="pt-4 border-t border-slate-100">
@@ -78,20 +78,42 @@ export const Step9: React.FC<{ lang: Language }> = ({ lang }) => {
           <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
           </div>
-          <h3 className="text-xl font-bold text-slate-900">{isRtl ? 'رفع مشکلات متداول' : 'Troubleshooting'}</h3>
+          <h3 className="text-xl font-bold text-slate-900">{isRtl ? 'رفع مشکلات و پشتیبانی' : 'Troubleshooting & Support'}</h3>
         </div>
         <p className="text-slate-600 text-sm mb-6 leading-relaxed">
           {isRtl 
-            ? 'اگر در هر مرحله‌ای به مشکل برخوردید، مستندات رسمی شامل لیستی از خطاهای رایج و راه‌حل‌های آن‌ها است.' 
-            : 'If you encounter any issues during the setup, the official documentation includes a comprehensive list of common errors and their fixes.'}
+            ? 'اگر در هر مرحله‌ای به مشکل برخوردید، نگران نباشید. به تخصص و اتحاد جامعه فعالان اینترنت آزاد در ایران اعتماد کنید.' 
+            : 'If you encounter issues, don\'t worry. Have trust in the Iranian tech community working for a free internet.'}
         </p>
+
+        <div className={`flex flex-col gap-4 mb-6 ${isRtl ? 'text-right' : 'text-left'}`}>
+          <div className="p-4 bg-blue-50 border border-blue-100 rounded-2xl">
+            <p className="text-sm text-blue-900 font-bold mb-2">
+              {isRtl ? 'سوالات خود را در X بپرسید' : 'Ask on X (Twitter)'}
+            </p>
+            <p className="text-xs text-blue-700 leading-relaxed mb-3">
+              {isRtl 
+                ? 'شما می‌توانید سوالات یا مشکلات خود را در پلتفرم X با منشن کردن its_pixel_lion@ مطرح کنید. ما و جامعه کاربری در کنار شما هستیم.' 
+                : 'You can post your questions or issues on X (Twitter) by mentioning @its_pixel_lion. We are here to support you.'}
+            </p>
+            <a 
+              href="https://x.com/its_pixel_lion" 
+              target="_blank" 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white text-blue-600 border border-blue-200 rounded-xl text-xs font-bold hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/></svg>
+              {isRtl ? 'ارتباط در توییتر' : 'Connect on Twitter'}
+            </a>
+          </div>
+        </div>
+
         <a 
           href="https://github.com/bugfloyd/dnstt-deploy?tab=readme-ov-file#common-issues" 
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg shadow-slate-200 text-sm active:scale-95"
         >
-          {isRtl ? 'مشاهده راه‌حل‌ها در گیت‌هاب' : 'View Common Issues on GitHub'}
+          {isRtl ? 'مشاهده خطاهای رایج در گیت‌هاب' : 'View Common Issues on GitHub'}
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
         </a>
       </section>

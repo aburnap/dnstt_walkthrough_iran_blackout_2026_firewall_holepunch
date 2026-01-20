@@ -68,24 +68,36 @@ export const Step6: React.FC<{ lang: Language }> = ({ lang }) => {
         </div>
       </div>
 
-      {/* User Management & Security Section */}
-      <div className="bg-emerald-50 border border-emerald-100 p-6 rounded-2xl space-y-4 shadow-sm">
-        <div className={`flex items-center gap-2 ${isRtl ? 'flex-row-reverse' : 'flex-row'}`}>
-          <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-          <span className="font-bold text-emerald-900 text-lg">{isRtl ? "امنیت و مدیریت کاربران" : "Security & User Management"}</span>
+      {/* User Management & Security Section - UPDATED TO OPTIONAL/RECOMMENDED */}
+      <div className="bg-emerald-50 border border-emerald-100 p-6 rounded-2xl space-y-4 shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 right-0 left-0 h-1 bg-emerald-200 opacity-50"></div>
+        <div className={`flex flex-wrap items-center gap-2 ${isRtl ? 'flex-row-reverse' : 'flex-row'}`}>
+          <div className="flex items-center gap-2">
+            <svg className="w-6 h-6 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            <span className="font-bold text-emerald-900 text-base md:text-lg">{isRtl ? "امنیت و مدیریت کاربران" : "Security & User Management"}</span>
+          </div>
+          <div className={`flex gap-1.5 ${isRtl ? 'flex-row-reverse mr-auto' : 'flex-row ml-auto'}`}>
+            <span className="px-2 py-0.5 bg-white border border-emerald-200 text-emerald-600 text-[9px] font-bold rounded uppercase tracking-wider">
+              {isRtl ? "اختیاری" : "Optional"}
+            </span>
+            <span className="px-2 py-0.5 bg-emerald-600 text-white text-[9px] font-bold rounded uppercase tracking-wider">
+              {isRtl ? "توصیه شده" : "Recommended"}
+            </span>
+          </div>
         </div>
+
         <div className={`text-sm text-emerald-800 space-y-4 leading-relaxed ${isRtl ? 'text-right' : 'text-left'}`}>
-          <p>
+          <p className="text-xs md:text-sm">
             {isRtl 
-              ? "اسکریپت یک کاربر جدید برای اتصالات SSH می‌سازد (معمولاً به نام dnstt) تا مجبور نباشید دسترسی کاربر ریشه (root) را با دیگران به اشتراک بگذارید." 
-              : "The script creates a new dedicated user for SSH connections (usually named 'dnstt') so you don't need to share root access with others."}
+              ? "انجام این مراحل برای پایداری سرویس اجباری نیست، اما به دلایل امنیتی شدیداً توصیه می‌شود تا دسترسی کاربر اصلی (root) را با دیگران به اشتراک نگذارید." 
+              : "While not strictly required for the service to function, these steps are highly recommended for security to avoid sharing root access."}
           </p>
           
           <div className="space-y-2">
-            <p className="font-bold text-emerald-900">
-              {isRtl ? "۱. تعیین رمز عبور برای کاربر جدید:" : "1. Assign a password to the new user:"}
+            <p className="font-bold text-emerald-900 text-xs md:text-sm">
+              {isRtl ? "۱. تعیین رمز عبور برای کاربر جدید (dnstt):" : "1. Assign a password to the new user (dnstt):"}
             </p>
-            <div className="bg-white/60 p-3 rounded-xl font-mono text-emerald-900 text-xs border border-emerald-200 flex items-center justify-between" dir="ltr">
+            <div className="bg-white/60 p-3 rounded-xl font-mono text-emerald-900 text-[11px] md:text-xs border border-emerald-200 flex items-center justify-between" dir="ltr">
               <code>{passwdCmd}</code>
               <button onClick={() => navigator.clipboard.writeText(passwdCmd)} className="hover:text-emerald-600 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
@@ -94,10 +106,10 @@ export const Step6: React.FC<{ lang: Language }> = ({ lang }) => {
           </div>
 
           <div className="space-y-2">
-            <p className="font-bold text-emerald-900">
+            <p className="font-bold text-emerald-900 text-xs md:text-sm">
               {isRtl ? "۲. بررسی تنظیمات SSH:" : "2. Check SSH Configuration:"}
             </p>
-            <p className="text-xs">
+            <p className="text-[11px] md:text-xs">
               {isRtl 
                 ? "مطمئن شوید در فایل /etc/ssh/sshd_config عبارت PasswordAuthentication روی yes تنظیم شده باشد تا ورود با رمز عبور فعال بماند." 
                 : "Ensure 'PasswordAuthentication' is set to 'yes' in /etc/ssh/sshd_config to enable password-based logins."}

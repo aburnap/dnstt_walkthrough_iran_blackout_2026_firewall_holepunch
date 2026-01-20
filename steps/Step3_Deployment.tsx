@@ -41,7 +41,6 @@ export const Step4: React.FC<{ lang: Language }> = ({ lang }) => {
           <button 
             onClick={() => {
               navigator.clipboard.writeText(command);
-              // Simple feedback would be nice but keeping it minimal as requested
             }}
             className="absolute top-4 right-6 bg-slate-800 hover:bg-blue-600 text-white transition-all p-2 rounded-xl border border-slate-700 active:scale-90"
             title="Copy to clipboard"
@@ -63,6 +62,23 @@ export const Step4: React.FC<{ lang: Language }> = ({ lang }) => {
             ? "این دستور به طور خودکار تمام ابزارهای لازم را دانلود و آماده نصب می‌کند. هیچ کار فنی پیچیده‌ای نیاز نیست انجام دهید." 
             : "This command automatically downloads all necessary tools and prepares the installation. You don't need to perform any complex manual tasks."}
         </p>
+      </div>
+
+      {/* Next Step Info */}
+      <div className={`mt-4 p-4 bg-emerald-50 border border-dashed border-emerald-200 rounded-2xl flex items-center gap-3 ${isRtl ? 'flex-row-reverse text-right' : 'flex-row text-left'}`}>
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+          <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <div>
+          <h6 className="text-xs font-bold text-emerald-900 mb-0.5">
+            {isRtl ? "بعدی: راهنمای سوالات نصب" : "Next: Installation Prompt Guide"}
+          </h6>
+          <p className="text-[10px] md:text-xs text-emerald-700/80 leading-snug">
+            {isRtl 
+              ? "در صفحه بعد، ما دقیقا به شما نشان می‌دهیم که در پاسخ به سوالات اسکریپت چه مقادیری را وارد کنید." 
+              : "On the next page, we will show you exactly what values to enter during the script's interactive prompts."}
+          </p>
+        </div>
       </div>
     </div>
   );

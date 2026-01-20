@@ -4,6 +4,7 @@ import { Language } from '../types';
 
 export const Step3: React.FC<{ lang: Language }> = ({ lang }) => {
   const isRtl = lang === 'fa';
+  const sampleIp = "203.0.113.2";
   
   return (
     <div className="space-y-6">
@@ -39,7 +40,7 @@ export const Step3: React.FC<{ lang: Language }> = ({ lang }) => {
               : "When you buy a VPS, the provider emails you these details:"}
           </p>
           <ul className="text-xs font-mono mt-3 space-y-1 text-blue-700">
-            <li className="flex justify-between"><span>IP:</span> <span>1.2.3.4</span></li>
+            <li className="flex justify-between"><span>IP:</span> <span>{sampleIp}</span></li>
             <li className="flex justify-between"><span>Username:</span> <span>root</span></li>
             <li className="flex justify-between"><span>Password:</span> <span>********</span></li>
           </ul>
@@ -59,13 +60,13 @@ export const Step3: React.FC<{ lang: Language }> = ({ lang }) => {
         
         <p className="text-sm text-slate-300 mb-4 leading-relaxed">
           {isRtl 
-            ? "در ترمینال خود، دستور زیر را تایپ کرده و اینتر بزنید. سپس پسورد را وارد کنید (هنگام تایپ پسورد، چیزی نمایش داده نمی‌شود):" 
-            : "In your terminal, type this command and press Enter. Then enter your password (note: characters won't appear while typing):"}
+            ? `در ترمینال خود، دستور زیر را تایپ کرده (آی‌پی ${sampleIp} یک مثال است؛ آن را با آی‌پی واقعی سرور خود جایگزین کنید) و اینتر بزنید. سپس پسورد را وارد کنید:` 
+            : `In your terminal, type this command (replacing the sample IP ${sampleIp} with your actual server IP) and press Enter. Then enter your password:`}
         </p>
 
         <div className="bg-black/50 p-4 rounded-xl border border-slate-700 group relative">
           <code className="text-emerald-400 font-mono text-sm md:text-base break-all" dir="ltr">
-            ssh root@<span className="text-white underline decoration-emerald-500/50 underline-offset-4">[SERVER_IP]</span>
+            ssh root@<span className="text-white underline decoration-emerald-500/50 underline-offset-4">{sampleIp}</span>
           </code>
           <div className="absolute top-2 right-2 text-[9px] font-bold text-slate-600 tracking-tighter uppercase italic">Example</div>
         </div>
@@ -73,9 +74,9 @@ export const Step3: React.FC<{ lang: Language }> = ({ lang }) => {
         <div className={`mt-6 p-3 rounded-xl bg-amber-950/20 border border-amber-900/30 flex items-start gap-3 ${isRtl ? 'flex-row-reverse' : 'flex-row'}`}>
            <svg className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
            <p className="text-[11px] md:text-xs text-amber-200/80 leading-relaxed">
-             <strong>{isRtl ? "نکته امنیتی:" : "Security Note:"}</strong> {isRtl 
-               ? "اگر بار اول است که وصل می‌شوید، پیامی حاوی کلمه 'yes/no' می‌بینید. کلمه 'yes' را تایپ کرده و اینتر بزنید." 
-               : "If it's your first time connecting, you might see a 'yes/no' fingerprint message. Type 'yes' and press Enter."}
+             <strong>{isRtl ? "نکته:" : "Note:"}</strong> {isRtl 
+               ? "هنگام تایپ پسورد، هیچ کاراکتری در ترمینال نمایش داده نمی‌شود. این یک رفتار امنیتی استاندارد در لینوکس است." 
+               : "Characters will not appear in the terminal while you type your password. This is a standard security feature in Linux."}
            </p>
         </div>
       </div>

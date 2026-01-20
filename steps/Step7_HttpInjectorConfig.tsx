@@ -9,7 +9,7 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
   const [mode, setMode] = useState<ConfigMode>('none');
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const isRtl = lang === 'fa';
-  const totalSteps = 9;
+  const totalSteps = 8;
 
   const getImgSrc = (idx: number) => `images/step-${(idx + 1).toString().padStart(2, '0')}.jpg?v=1`;
 
@@ -63,27 +63,27 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
             </li>
             <li className="flex gap-3 items-start">
               <span className="text-blue-500 font-bold shrink-0 mt-0.5">۴.</span>
-              <span>بروید به تنظیمات اپ <code className="bg-slate-800 px-1.5 py-0.5 rounded text-white text-[11px]" dir="ltr">settings &gt; Secure Shell (SSH) &gt; Password</code> و پسوردی که برای یوزر <code className="text-emerald-400">dnstt</code> روی سرور ساختید رو اینجا وارد کنید</span>
+              <span>بروید به تنظیمات اپ <code className="bg-slate-800 px-1.5 py-0.5 rounded text-white text-[11px]" dir="ltr">settings &gt; Secure Shell (SSH)</code> و نام کاربری را <code className="text-emerald-400 font-bold">root</code> یا <code className="text-emerald-400 font-bold">dnstt</code> قرار داده و پسوردی که برای آن روی سرور ساختید را وارد کنید.</span>
             </li>
             <li className="flex gap-3 items-start">
               <span className="text-blue-500 font-bold shrink-0 mt-0.5">۵.</span>
-              <span>در همان بخش تنظیمات SSH، مقدار <span className="text-white font-bold">Local Port</span> را برابر با <code className="text-blue-400">5300</code> قرار دهید.</span>
-            </li>
-            <li className="flex gap-3 items-start">
-              <span className="text-blue-500 font-bold shrink-0 mt-0.5">۶.</span>
               <span>بروید به تنظیمات <code className="bg-slate-800 px-1.5 py-0.5 rounded text-white text-[11px]" dir="ltr">settings &gt; DNSTT (DNS)</code></span>
             </li>
             <li className="flex gap-3 items-start">
-              <span className="text-blue-500 font-bold shrink-0 mt-0.5">۷.</span>
-              <span>نام دامنه خود را در این قسمت وارد کنید: <span className="text-white font-bold">DNSTT Nameserver</span></span>
+              <span className="text-blue-500 font-bold shrink-0 mt-0.5">۶.</span>
+              <span>نام دامنه NS خود را (مانند <code className="text-white">k.example.com</code>) در فیلد <span className="text-emerald-400 font-bold">DNSTT Nameserver</span> وارد کنید.</span>
             </li>
             <li className="flex gap-3 items-start">
-              <span className="text-blue-500 font-bold shrink-0 mt-0.5">۸.</span>
+              <span className="text-blue-500 font-bold shrink-0 mt-0.5">۷.</span>
               <span>کلید عمومی که بعد از اجرای اسکریپت دریافت کردید را اینجا وارد کنید: <span className="text-emerald-400 font-bold">DNSTT Public Key</span></span>
             </li>
             <li className="flex gap-3 items-start">
-              <span className="text-blue-500 font-bold shrink-0 mt-0.5">۹.</span>
-              <span>یک سرور DNS ایرانی را در قسمت <span className="text-white font-bold">DNS Resolver Address</span> وارد کنید. می‌توانید تمام DNS های ایرانی را <a href="https://dnstt.network/ir_dns_servers.txt" target="_blank" className="underline text-blue-400 hover:text-blue-300">اینجا</a> پیدا کنید.</span>
+              <span className="text-blue-500 font-bold shrink-0 mt-0.5">۸.</span>
+              <div>
+                <span>در قسمت <span className="text-white font-bold">DNS Resolver Address</span>، یک IP سالم به همراه پورت ۵۳ (مثل <code className="text-emerald-400">8.8.8.8:53</code> یا <code className="text-emerald-400">1.1.1.1:53</code>) وارد کنید.</span>
+                <p className="mt-1 text-[11px] text-slate-400 italic">برخی کاربران گزارش داده‌اند که DNSهای گوگل و کلودفلر نیز بخوبی کار می‌کنند. حتماً پورت <code className="text-white">:53</code> را در انتها قرار دهید.</p>
+                <a href="https://dnstt.network/ir_dns_servers.txt" target="_blank" className="underline text-blue-400 hover:text-blue-300 text-xs mt-1 inline-block">مشاهده لیست سرورهای DNS ایرانی</a>
+              </div>
             </li>
           </ol>
         ) : (
@@ -102,27 +102,27 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
             </li>
             <li className="flex gap-3 items-start">
               <span className="text-blue-500 font-bold shrink-0 mt-0.5">4.</span>
-              <span>Go to <code className="bg-slate-800 px-1.5 py-0.5 rounded text-white text-[11px]">settings &gt; Secure Shell (SSH) &gt; Password</code> and enter your SSH password for the <code className="text-emerald-400">dnstt</code> user</span>
+              <span>Go to <code className="bg-slate-800 px-1.5 py-0.5 rounded text-white text-[11px]">settings &gt; Secure Shell (SSH)</code> and set the username to <code className="text-emerald-400 font-bold">root</code> or <code className="text-emerald-400 font-bold">dnstt</code> and enter your password.</span>
             </li>
             <li className="flex gap-3 items-start">
               <span className="text-blue-500 font-bold shrink-0 mt-0.5">5.</span>
-              <span>In the SSH configuration connection section, set the <span className="text-white font-bold">Local Port</span> to <code className="text-blue-400">5300</code>.</span>
-            </li>
-            <li className="flex gap-3 items-start">
-              <span className="text-blue-500 font-bold shrink-0 mt-0.5">6.</span>
               <span>Go to <code className="bg-slate-800 px-1.5 py-0.5 rounded text-white text-[11px]">settings &gt; DNSTT (DNS)</code></span>
             </li>
             <li className="flex gap-3 items-start">
-              <span className="text-blue-500 font-bold shrink-0 mt-0.5">7.</span>
-              <span>Add your domain name to <span className="text-white font-bold">DNSTT Nameserver</span></span>
+              <span className="text-blue-500 font-bold shrink-0 mt-0.5">6.</span>
+              <span>Enter your NS subdomain (e.g., <code className="text-white">k.example.com</code>) in the <span className="text-emerald-400 font-bold">DNSTT Nameserver</span> field.</span>
             </li>
             <li className="flex gap-3 items-start">
-              <span className="text-blue-500 font-bold shrink-0 mt-0.5">8.</span>
+              <span className="text-blue-500 font-bold shrink-0 mt-0.5">7.</span>
               <span>Add your Public Key to <span className="text-emerald-400 font-bold">DNSTT Public Key</span></span>
             </li>
             <li className="flex gap-3 items-start">
-              <span className="text-blue-500 font-bold shrink-0 mt-0.5">9.</span>
-              <span>Add a valid Iranian DNS server to <span className="text-white font-bold">DNS Resolver Address</span>. You can find them <a href="https://dnstt.network/ir_dns_servers.txt" target="_blank" className="underline text-blue-400 hover:text-blue-300">here</a>.</span>
+              <span className="text-blue-500 font-bold shrink-0 mt-0.5">8.</span>
+              <div>
+                <span>In the <span className="text-white font-bold">DNS Resolver Address</span> field, enter a working IP with port 53 (e.g., <code className="text-emerald-400">8.8.8.8:53</code> or <code className="text-emerald-400">1.1.1.1:53</code>).</span>
+                <p className="mt-1 text-[11px] text-slate-400 italic">Some users report that Google and Cloudflare DNS are working as well. Ensure you include the <code className="text-white">:53</code> port format.</p>
+                <a href="https://dnstt.network/ir_dns_servers.txt" target="_blank" className="underline text-blue-400 hover:text-blue-300 text-xs mt-1 inline-block">View list of Iranian DNS servers</a>
+              </div>
             </li>
           </ol>
         )}
@@ -138,7 +138,7 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
 
   const renderStepByStep = () => (
     <div className="animate-in fade-in slide-in-from-top-2 duration-300">
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[...Array(totalSteps)].map((_, i) => {
           const imgSrc = getImgSrc(i);
           return (
