@@ -9,7 +9,7 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
   const [mode, setMode] = useState<ConfigMode>('none');
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const isRtl = lang === 'fa';
-  const totalSteps = 10;
+  const totalSteps = 9;
 
   const getImgSrc = (idx: number) => `/dnstt_walkthrough/images/step-${(idx + 1).toString().padStart(2, '0')}.jpg`;
 
