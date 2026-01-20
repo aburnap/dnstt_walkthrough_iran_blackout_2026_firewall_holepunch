@@ -11,7 +11,7 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
   const isRtl = lang === 'fa';
   const totalSteps = 9;
 
-  const getImgSrc = (idx: number) => `/dnstt_walkthrough/images/step-${(idx + 1).toString().padStart(2, '0')}.jpg`;
+  const getImgSrc = (idx: number) => `images/step-${(idx + 1).toString().padStart(2, '0')}.jpg?v=1`;
 
   const handleNext = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();

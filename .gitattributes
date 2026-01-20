@@ -1,0 +1,16 @@
+# Treat images as binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.svg binary # SVGs are text-based (XML) but often treated as binary to prevent line-ending/merge issues.
+
+# Treat markdown as text
+*.md text
+
+# Enforce LF for code files
+*.js eol=lf
+*.jsx eol=lf
+*.json eol=lf
+
+# Hide build files from diffs and stats
+/dist/* linguist-generated=true
