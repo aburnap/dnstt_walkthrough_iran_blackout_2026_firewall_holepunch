@@ -11,8 +11,8 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
   const isRtl = lang === 'fa';
   const totalSteps = 10;
 
-  // Pattern requested: https://storage.googleapis.com/dnsst/images/step-01.jpg
-  const getImgSrc = (idx: number) => `https://storage.googleapis.com/dnsst/images/step-${(idx + 1).toString().padStart(2, '0')}.jpg`;
+  // Updated pattern: https://its-pixelion.github.io/dnstt_walkthrough/images/step-01.jpg
+  const getImgSrc = (idx: number) => `https://its-pixelion.github.io/dnstt_walkthrough/images/step-${(idx + 1).toString().padStart(2, '0')}.jpg`;
 
   const handleNext = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -32,7 +32,6 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIdx === null) return;
-      // Fixed typo: removed 'tag' keyword that was breaking the syntax
       if (e.key === 'ArrowRight') isRtl ? handlePrev() : handleNext();
       if (e.key === 'ArrowLeft') isRtl ? handleNext() : handlePrev();
       if (e.key === 'Escape') handleClose();
@@ -190,7 +189,7 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
                 <svg className="w-6 h-6 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
-              </button>
+               </button>
             </div>
 
             {/* Navigation Buttons (Desktop Only) */}
