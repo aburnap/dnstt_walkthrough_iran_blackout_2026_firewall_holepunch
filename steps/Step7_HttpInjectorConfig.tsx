@@ -11,8 +11,7 @@ export const Step8: React.FC<{ lang: Language }> = ({ lang }) => {
   const isRtl = lang === 'fa';
   const totalSteps = 10;
 
-  // Updated pattern: https://its-pixelion.github.io/dnstt_walkthrough/images/step-01.jpg
-  const getImgSrc = (idx: number) => `https://its-pixelion.github.io/dnstt_walkthrough/images/step-${(idx + 1).toString().padStart(2, '0')}.jpg`;
+  const getImgSrc = (idx: number) => `images/step-${(idx + 1).toString().padStart(2, '0')}.jpg`;
 
   const handleNext = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
