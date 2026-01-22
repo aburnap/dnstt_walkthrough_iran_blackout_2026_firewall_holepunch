@@ -9,7 +9,7 @@ export const Step7: React.FC<{ lang: Language }> = ({ lang }) => {
   return (
     <div className="space-y-6">
       <div className="bg-blue-50 border border-blue-100 p-5 rounded-2xl">
-        <p className="text-sm text-blue-800 leading-relaxed">
+        <p className={`text-sm text-blue-800 leading-relaxed ${isRtl ? 'text-right' : 'text-left'}`}>
           {isRtl 
             ? "در این آموزش ما فقط بر روی حالت تونل SSH تمرکز می‌کنیم. اگر به دنبال استفاده از حالت SOCKS پروکسی هستید، می‌توانید به مستندات اصلی مراجعه کنید:" 
             : "In this walkthrough, we focus specifically on SSH tunnel mode. For SOCKS proxy mode instructions, please visit the original repository:"}
@@ -55,15 +55,61 @@ export const Step7: React.FC<{ lang: Language }> = ({ lang }) => {
       </div>
 
       <div className="bg-red-50 border border-red-100 p-5 rounded-2xl">
-        <div className={`flex items-center gap-2 mb-2 ${isRtl ? 'flex-row-reverse' : 'flex-row'}`}>
-          <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        <div className="flex items-center gap-2 mb-2 justify-start">
+          <svg className="w-5 h-5 text-red-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
           <span className="font-bold text-red-800">{isRtl ? "هشدار امنیتی" : "Security Notice"}</span>
         </div>
-        <p className="text-sm text-red-700 leading-relaxed">
+        <p className={`text-sm text-red-700 leading-relaxed ${isRtl ? 'text-right' : 'text-left'}`}>
           {isRtl 
             ? "به دلایل امنیتی و دسترسی‌های اینترنت، ما نمی‌توانیم لینک‌های مستقیم دانلود فایل‌های نصبی (APK) را برای کاربران داخل ایران ارائه دهیم. لطفاً فایل‌ها را از طریق فردی مورد اعتماد در سرویس‌های داخلی بارگذاری و دریافت نمایید. با جستجو در توییتر و یا تلگرام می‌توانید افراد یا گروه‌هایی را بیابید که این فایل‌ها را به اشتراک می‌گذارند." 
             : "For security reasons and local network restrictions, we do not provide direct APK download links. Please ask someone you trust to upload the files to a trusted local service. You can find individuals or groups sharing these files by searching on Twitter/X or Telegram."}
         </p>
+      </div>
+
+      {/* Security & Privacy Caution Section */}
+      <div className="bg-amber-50 border border-amber-200 p-5 rounded-2xl space-y-3">
+        <div className="flex items-center gap-2 justify-start">
+          <svg className="w-5 h-5 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span className="font-bold text-amber-900">{isRtl ? "نکته امنیتی بسیار مهم برای فعالان" : "Critical Security Note for Activists"}</span>
+        </div>
+        
+        <div className={`text-sm leading-relaxed text-amber-800 ${isRtl ? 'text-right' : 'text-left'}`}>
+          {isRtl ? (
+            <>
+              <p className="mb-2">
+                اگر شما یک فعال اجتماعی یا سیاسی هستید و نگران حریم خصوصی خود می‌باشید، به این موضوع توجه کنید:
+              </p>
+              <p className="mb-2">
+                ۱. <strong>نشت آی‌پی و متادیتا:</strong> وقتی از یک تحلیل‌گر DNS معمولی (به ویژه موارد داخلی یا ایرانی) استفاده می‌کنید، آن سرویس متوجه می‌شود که شما در حال ارسال درخواست به سرور شخصی خود هستید. هرچند محتوای پیام‌های شما توسط DNSTT رمزنگاری شده، اما <strong>واقعیتِ ارتباط شما با آن سرور</strong> ثبت می‌شود.
+              </p>
+              <p className="mb-2">
+                ۲. <strong>امن‌ترین روش (DoH/DoT):</strong> برای پنهان‌کاری کامل، از تحلیل‌گرهای بین‌المللی <strong>فقط در حالت DoH یا DoT</strong> استفاده کنید. <strong>این تنظیمات فقط باید در سمت اپلیکیشن کلاینت (مانند HTTP Injector) انجام شود.</strong> ابزار DNSTT از این پروتکل‌ها پشتیبانی می‌کند و با فعال‌سازی آن‌ها، کل درخواست‌های DNS شما در یک لایه امنیتی اضافی (HTTPS یا TLS) مخفی می‌شود. می‌توانید لیست سرورهای عمومی DoH را در لینک زیر مشاهده کنید:
+              </p>
+              <a href="https://github.com/curl/curl/wiki/DNS-over-HTTPS#publicly-available-servers" target="_blank" className="text-blue-600 underline font-mono text-[11px] block mt-2 break-all mb-3">github.com/curl/curl/wiki/DNS-over-HTTPS#publicly-available-servers</a>
+              <p className="mt-2 p-2 bg-amber-100/50 rounded-lg border border-amber-200">
+                ⚠️ <strong>هشدار سانسور شدید:</strong> توجه داشته باشید که در زمان فیلترینگ شدید، ممکن است دسترسی به تحلیل‌گرهای عمومی DoH یا DoT (مانند گوگل یا کلودفلر) توسط سیستم‌های فیلترینگ مسدود شود. در چنین شرایطی، این روش‌های امن ممکن است به طور موقت از دسترس خارج شوند.
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="mb-2">
+                If you are a social or political activist concerned about your digital footprint, please consider:
+              </p>
+              <p className="mb-2">
+                1. <strong>IP & Metadata Leakage:</strong> When using a standard DNS Resolver (especially local ones), the provider can see that you are sending requests to your private server. While **DNSTT encrypts your content**, the mere fact that you are communicating with that server remains visible.
+              </p>
+              <p className="mb-2">
+                2. <strong>The Safest Way (DoH/DoT):</strong> For maximum privacy, always use trusted international resolvers **exclusively via DoH (DNS over HTTPS) or DoT (DNS over TLS)**. **This only needs to be configured on your client application (like HTTP Injector).** DNSTT natively supports these protocols, wrapping your tunnel requests in an extra layer of encryption. You can find a list of publicly available DoH servers here:
+              </p>
+              <a href="https://github.com/curl/curl/wiki/DNS-over-HTTPS#publicly-available-servers" target="_blank" className="text-blue-600 underline font-mono text-[11px] block mt-2 break-all mb-3">github.com/curl/curl/wiki/DNS-over-HTTPS#publicly-available-servers</a>
+              <p className="mt-2 p-2 bg-amber-100/50 rounded-lg border border-amber-200">
+                ⚠️ <strong>Extreme Censorship Warning:</strong> Please be aware that during periods of extreme government censorship, public DoH or DoT resolvers (such as Google or Cloudflare) may be explicitly blocked. In such cases, these secure connection methods might become temporarily unavailable.
+              </p>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
