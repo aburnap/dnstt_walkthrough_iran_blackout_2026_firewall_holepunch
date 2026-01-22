@@ -7,6 +7,10 @@ Here are the public key and domain details. Server IP is in Russian/Moldovan ASN
 ```
 dnstt-client -udp DNS_SERVER_IP:53 797bc153eaf6c35a6d82b7972d4712801d0e8f2abd137b3290f6a3b46c1fa179 t.dataprivacy.dad 127.0.0.1:7000
 ```
+if fail, try port 5300 (reverse proxy)
+```
+dnstt-client -udp DNS_SERVER_IP:53 797bc153eaf6c35a6d82b7972d4712801d0e8f2abd137b3290f6a3b46c1fa179 t.dataprivacy.dad 127.0.0.1:5300
+```
 
 ## [Follow this Github thread for latest configuration details.](https://github.com/net4people/bbs/issues/561)
 
