@@ -1,5 +1,15 @@
 [Persian (فارسی)](README-fa.md)
 
+# FOR USERS IN IRAN - رای کاربران ایرانی - Baraye Karbaran Irani - DNS-TT SERVER DETAILS
+
+Here are the public key and domain details. Server IP is in Russian/Moldovan ASN.
+
+```
+dnstt-client -udp DNS_SERVER_IP:53 797bc153eaf6c35a6d82b7972d4712801d0e8f2abd137b3290f6a3b46c1fa179 t.dataprivacy.dad 127.0.0.1:7000
+```
+
+## [Follow this Github thread for latest configuration details.](https://github.com/net4people/bbs/issues/561)
+
 # 🚀 DNSTT Installation Walkthrough
 
 A comprehensive interactive guide designed to simplify the deployment and configuration of **DNSTT** (DNS Tunneling). This walkthrough provides a step-by-step path for users to establish secure connectivity through DNS protocols, specifically optimized for challenging network environments.
